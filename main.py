@@ -5,7 +5,7 @@
 #|----------------------------------------------------------------------------------------------------------------------------------|
 from turtle import *
 
-def ploca():
+def ploca(): #Chessboard Creation
     x = -400
     ispuna = True
     pencolor("green")
@@ -35,7 +35,7 @@ def ploca():
         ispuna = not ispuna
     return
 
-def polje(a, b):
+def polje(a, b): #Field
     x = -500
     y = -500
     if (not (((a % 2) == 0) ^ ((b % 2) == 0))):
@@ -62,7 +62,7 @@ def polje(a, b):
     goto(point1)
     end_fill()
 
-def pijun(a, b, bojaP):
+def pijun(a, b, bojaP): #Pawn
     pencolor(bojaP)
     fillcolor(bojaP)
     pensize(2)
@@ -82,7 +82,7 @@ def pijun(a, b, bojaP):
     circle(10)
     end_fill()
 
-def lovac(a, b, bojaL):
+def lovac(a, b, bojaL): #Bishop
     pencolor(bojaL)
     fillcolor(bojaL)
     pensize(2)
@@ -113,7 +113,7 @@ def top(a, b, bojaT):
     goto(x + (a * 100) + 20, y + (b * 100) + 20)
     pd()
     begin_fill()
-    #Tijelo Topa
+    #Tijelo Topa / Rook's Body
     fd(60)
     lt(90)
     fd(20)
@@ -125,7 +125,7 @@ def top(a, b, bojaT):
     fd(10)
     lt(90)
     fd(20)
-    #Kruna Topa
+    #Kruna Topa / Start of Rook's Crown
     lt(90)
     fd(10)
     lt(90)
@@ -144,7 +144,7 @@ def top(a, b, bojaT):
     fd(10)
     lt(90)
     fd(10)
-    #Kraj Krune Topa
+    #Kraj Krune Topa / End of Rook's Crown
     lt(90)
     fd(20)
     lt(90)
@@ -169,7 +169,7 @@ def skakac(a,b,bojaS):
     goto(x+(a*100)+20, y+(b*100)+20)
     pendown()
     begin_fill()
-    #Tijelo Skakaca/Konja
+    #Tijelo Skakaca / Knight's body
     fd(60)
     lt(90)
     fd(20)
@@ -185,14 +185,14 @@ def skakac(a,b,bojaS):
     fd(10)
     lt(90)
     fd(10)
-    #Glava Skakaca/Konja
+    #Glava Skakaca / Start of Knight's head
     lt(70)
     fd(50)
     lt(90)
     fd(30)
     lt(110)
     fd(10)
-    #Kraj Glave Skakaca/Konja
+    #Kraj Glave Skakaca / End of Knight's head
     rt(90)
     fd(20)
     goto(x+(a*100)+20, y+(b*100)+40)
@@ -211,7 +211,7 @@ def kraljica(a,b,bojaK):
     goto(x+(a*100)+20, y+(b*100)+20)
     pd()
     begin_fill()
-    #Tijelo Kraljice
+    #Tijelo Kraljice / Queen's Body
     fd(60)
     lt(90)
     fd(20)
@@ -223,14 +223,14 @@ def kraljica(a,b,bojaK):
     fd(10)
     lt(90)
     fd(10)
-    #Glava Kraljice
+    #Glava Kraljice / Queen's Head
     lt(90)
     fd(40)
     lt(90)
     fd(10)
     lt(90)
     fd(10)
-    #Kraj Glave Kraljice
+    #Kraj Glave Kraljice / End of Queen's Head
     rt(90)
     fd(30)
     rt(90)
@@ -251,7 +251,7 @@ def kralj(a,b,bojaKc):
     goto(x+(a*100)+20, y+(b*100)+20)
     pd()
     begin_fill()
-    #Tijelo Kralja
+    #Tijelo Kralja / Body of King
     fd(60)
     lt(90)
     fd(20)
@@ -263,7 +263,7 @@ def kralj(a,b,bojaKc):
     fd(10)
     lt(90)
     fd(10)
-    #Glava Kralja
+    #Glava Kralja / Start of King's head
     lt(90)
     fd(15)
     lt(90)
@@ -278,7 +278,7 @@ def kralj(a,b,bojaKc):
     fd(10)
     lt(90)
     fd(10)
-    #Kraj Glave Kralja
+    #Kraj Glave Kralja / End of King's head
     rt(90)
     fd(30)
     rt(90)
@@ -293,28 +293,28 @@ def start(boja1, boja2):
     for i in range(1,9):
         pijun(i,2,boja1)
         pijun(i,7,boja2)
-    #TOP
+    #TOP/Rook
     top(1,1,boja1)
     top(8,1,boja1)
     top(1,8,boja2)
     top(8,8,boja2)
-    #LOVAC
+    #LOVAC/Bishop
     lovac(3,1,boja1)
     lovac(6,1,boja1)
     lovac(3,8,boja2)
     lovac(6,8,boja2)
-    #SKAKAC
+    #SKAKAC/Knight
     skakac(2,1,boja1)
     skakac(7,1,boja1)
     skakac(2,8,boja2)
     skakac(7,8,boja2)
-    #KRALJICA
+    #KRALJICA/Queen
     kraljica(4,1,boja1)
     kraljica(4,8,boja2)
-    #KRALJ
+    #KRALJ/King
     kralj(5,1,boja1)
     kralj(5,8,boja2)
-    #PIJUNI
+    #PIJUNI/Pawn
     polje(3,2)
     pijun(3,4,boja1)
     polje(4,7)
