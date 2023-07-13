@@ -51,7 +51,7 @@ def polje(a, b):
     point1 = (x + (a * 100), y + (b * 100))
     point2 = (x + (a * 100), y + (b * 100) + 100)
     point3 = (x + (a * 100) + 100, y + (b * 100) + 100)
-    point4 = (x + (a * 100) + 100, y(b * 100))
+    point4 = (x + (a * 100) + 100, y + (b * 100))
     pu()
     goto(point1)
     begin_fill()
@@ -62,9 +62,9 @@ def polje(a, b):
     goto(point1)
     end_fill()
 
-def pijun(a, b, boja):
-    pencolor(boja)
-    fillcolor(boja)
+def pijun(a, b, bojaP):
+    pencolor(bojaP)
+    fillcolor(bojaP)
     pensize(2)
     speed(0)
     x = -500
@@ -82,15 +82,15 @@ def pijun(a, b, boja):
     circle(10)
     end_fill()
 
-def lovac(a, b, boja):
-    pencolor(boja)
-    fillcolor(boja)
+def lovac(a, b, bojaL):
+    pencolor(bojaL)
+    fillcolor(bojaL)
     pensize(2)
     speed(0)
     x = -500
     y = -500
     pu()
-    goto(x + (a * 100) + 80, y + (b * 100) + 20)
+    goto(x + (a * 100) + 20, y + (b * 100) + 20)
     pd()
     begin_fill()
     goto(x + (a * 100) + 80, y + (b * 100) + 20)
@@ -102,9 +102,9 @@ def lovac(a, b, boja):
     circle(10)
     end_fill()
 
-def top(a, b, boja):
-    pencolor(boja)
-    fillcolor(boja)
+def top(a, b, bojaT):
+    pencolor(bojaT)
+    fillcolor(bojaT)
     pensize(2)
     speed(0)
     x = -500
@@ -158,9 +158,9 @@ def top(a, b, boja):
     lt(90)
     end_fill()
 
-def skakac(a,b,boja):
-    pencolor(boja)
-    fillcolor(boja)
+def skakac(a,b,bojaS):
+    pencolor(bojaS)
+    fillcolor(bojaS)
     pensize(2)
     speed(0)
     x=-500
@@ -200,9 +200,9 @@ def skakac(a,b,boja):
     lt(90)
     end_fill()
 
-def kraljica(a,b,boja):
-    pencolor(boja)
-    fillcolor(boja)
+def kraljica(a,b,bojaK):
+    pencolor(bojaK)
+    fillcolor(bojaK)
     pensize(2)
     speed(0)
     x=-500
@@ -240,9 +240,9 @@ def kraljica(a,b,boja):
     lt(90)
     end_fill()
 
-def kralj(a,b,boja):
-    pencolor(boja)
-    fillcolor(boja)
+def kralj(a,b,bojaKc):
+    pencolor(bojaKc)
+    fillcolor(bojaKc)
     pensize(2)
     speed(0)
     x=-500
@@ -264,3 +264,64 @@ def kralj(a,b,boja):
     lt(90)
     fd(10)
     #Glava Kralja
+    lt(90)
+    fd(15)
+    lt(90)
+    fd(10)
+    rt(90)
+    fd(10)
+    rt(90)
+    fd(10)
+    lt(90)
+    fd(15)
+    lt(90)
+    fd(10)
+    lt(90)
+    fd(10)
+    #Kraj Glave Kralja
+    rt(90)
+    fd(30)
+    rt(90)
+    fd(20)
+    lt(90)
+    fd(20)
+    lt(90)
+    end_fill()
+
+def start(boja1, boja2):
+    ploca()
+    for i in range(1,9):
+        pijun(i,2,boja1)
+        pijun(i,7,boja2)
+    #TOP
+    top(1,1,boja1)
+    top(8,1,boja1)
+    top(1,8,boja2)
+    top(8,8,boja2)
+    #LOVAC
+    lovac(3,1,boja1)
+    lovac(6,1,boja1)
+    lovac(3,8,boja2)
+    lovac(6,8,boja2)
+    #SKAKAC
+    skakac(2,1,boja1)
+    skakac(7,1,boja1)
+    skakac(2,8,boja2)
+    skakac(7,8,boja2)
+    #KRALJICA
+    kraljica(4,1,boja1)
+    kraljica(4,8,boja2)
+    #KRALJ
+    kralj(5,1,boja1)
+    kralj(5,8,boja2)
+    #PIJUNI
+    polje(3,2)
+    pijun(3,4,boja1)
+    polje(4,7)
+    pijun(4,5,boja2)
+    polje(4,2)
+    pijun(4,4,boja1)
+    ht()
+    exitonclick()
+
+start("red", "blue")
